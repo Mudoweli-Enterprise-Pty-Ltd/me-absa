@@ -1,0 +1,66 @@
+<h1>Add Phone Book</h1>
+
+<form class="form-horizontal" #f="ngForm" novalidate>
+
+  <div>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+          <label for="name">* Name</label>
+          <input type="text" name="name" [(ngModel)]="model.phoneBook.name" #name="ngModel" class="form-control" placeholder="Enter Name"
+                 required>
+
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="invalid-feedback form-error">
+            <div *ngIf="name.errors.required" class="invalid-feedback form-error error-message">Name is required.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngFor="let entry of model.phoneBook.entries; let index = index;" class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+          <label for="entryType{{index}}">* Entry Type</label>
+          <select id="entryType{{index}}" name="entryType{{index}}"
+                  [(ngModel)]="entry.entryType" #entryType="ngModel" class="form-control"
+                  required>
+            <option *ngFor="let entryType of model.entryTypes" [value]="entryType.id">{{entryType.name}}</option>
+          </select>
+
+          <div *ngIf="entryType.invalid && (entryType.dirty || entryType.touched)" class="invalid-feedback form-error">
+            <div *ngIf="entryType.errors.required" class="invalid-feedback form-error error-message">Entry Type is required.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="form-group">
+          <label for="phonenumber{{index}}">* Phone number</label>
+          <input type="tel" name="phonenumber{{index}}" [(ngModel)]="entry.phoneNumber" #phonenumber="ngModel" tel class="form-control" placeholder="082 000-0000"
+                 required
+                 pattern="(?<AreaCode>\d{3})\s*(?<Number>\d{3}(?:-|\s*)\d{4})">
+          <div *ngIf="phonenumber.invalid && (phonenumber.dirty || phonenumber.touched)" class="invalid-feedback form-error">
+            <div *ngIf="phonenumber.errors.required" class="invalid-feedback form-error error-message">Phone number is required.</div>
+            <div *ngIf="phonenumber.errors.pattern" class="invalid-feedback form-error error-message">Phone number is invalid.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <button type="submit" class="btn btn-secondary btn-block" (click)='addEntry()'>Add Entry</button>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-lg-6 col-md-12">
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="f.form.invalid" (click)='save()'>SAVE</button>
+      </div>
+    </div>
+
+  </div>
+
+
+</form>

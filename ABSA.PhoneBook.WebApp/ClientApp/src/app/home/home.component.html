@@ -1,0 +1,51 @@
+<h1>Gift Musandiwa</h1>
+
+<p>PhoneBook Assessment.</p>
+
+<div class="row">
+  <div class="col-lg-8 col-md-4">
+    <div class="page-heading-holder">
+      <span class="page-heading">Phone Book List</span>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-8">
+    <div class="input-group">
+      <input type="text" id="searchText" name="searchText" [(ngModel)]="model.searchText" #searchText="ngModel" class="form-control" placeholder="Search">
+      <div class="input-group-prepend">
+        <div class="input-group-text"><fa name="search"></fa></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p *ngIf="!model.phoneBooks"><em>Loading...</em></p>
+
+<div class="raw  mt-3" *ngFor="let phoneBook of model.phoneBooks | filter : model.searchText">
+  <div class="col-lg-4 col-md-4">
+    <b>{{phoneBook.name}}</b>
+  </div>
+  <div class="col-lg-8 col-md-4">
+    <div class="raw" *ngFor="let entry of phoneBook.entries"
+         [ngSwitch]="entry.entryType">
+      <div *ngSwitchCase="1" class="col-lg-4 col-md-4">
+        <span><fa name="mobile"></fa></span>
+        <span class="name">Mobile</span>
+      </div>
+      <div *ngSwitchCase="2" class="col-lg-4 col-md-4">
+        <span><fa name="phone"></fa></span>
+        <span class="name">Work</span>
+      </div>
+      <div *ngSwitchCase="3" class="col-lg-4 col-md-4">
+        <span><fa name="home"></fa></span>
+        <span class="name">Home</span>
+      </div>
+      <div *ngSwitchCase="4" class="col-lg-4 col-md-4">
+        <span><fa name="address-book"></fa></span>
+        <span class="name">Other</span>
+      </div>
+
+      <div class="col-lg-8 col-md-8">{{entry.phoneNumber}}</div>
+    </div>
+  </div>
+</div>

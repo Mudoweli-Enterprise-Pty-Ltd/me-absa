@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>ABSA.PhoneBook.Model</AssemblyName>
+    <RootNamespace>ABSA.PhoneBook.Model</RootNamespace>
+  </PropertyGroup>
+
+</Project>

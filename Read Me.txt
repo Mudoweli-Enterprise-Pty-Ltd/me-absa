@@ -1,0 +1,24 @@
+
+Scaffold
+dotnet ef dbcontext scaffold "Server=.\;Database=ABSA.SQL;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Entities -f
+
+
+Scaffold Api Swagger
+npm run apigen
+
+https://www.npmjs.com/package/angular-font-awesome
+Install Packages 
+npm install --save font-awesome angular-font-awesome
+
+
+https://www.npmjs.com/package/ngx-toastr
+Install Packages 
+npm install ngx-toastr --save
+npm install @angular/animations --save
+
+
+AzureDev Database Server
+server:me-virtual-sql-srv
+db:me-absa-sql-db
+usr:me-virtual-sql-srv-admin
+pwd:

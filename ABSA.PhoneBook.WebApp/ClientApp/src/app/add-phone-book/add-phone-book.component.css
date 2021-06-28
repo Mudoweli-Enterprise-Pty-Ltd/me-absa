@@ -1,0 +1,46 @@
+
+/* Error Message */
+.error-message {
+  background: #facece;
+  height: 40px;
+  line-height: 40px;
+  margin-bottom: 10px;
+  display: block;
+  padding: 0 10px;
+}
+
+@media (min-width:577px) {
+  .error-message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width:576px) {
+  .error-message {
+    font-size: 12px;
+  }
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.form-group input.ng-invalid.ng-touched,
+.form-group input.ng-invalid:focus,
+.form-group select.ng-invalid.ng-touched,
+.form-submit input.ng-invalid,
+.form-submit select.ng-invalid,
+.input-group input.ng-invalid,
+.input-group select.ng-invalid {
+  border-color: #ff4c6a !important;
+  box-shadow: 0 0 5px rgba(255,0,0,.3) !important;
+}
+
+ng-select.ng-invalid.ng-touched .ng-select-container {
+  border-color: #ff4c6a !important;
+  box-shadow: 0 0 5px rgba(255,0,0,.3) !important;
+}
+
+.invalid-feedback.form-error {
+  display: block;
+}
